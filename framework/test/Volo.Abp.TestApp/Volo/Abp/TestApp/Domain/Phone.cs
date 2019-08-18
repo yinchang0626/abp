@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Volo.Abp.Domain.Entities;
+
 namespace Volo.Abp.TestApp.Domain
 {
     [Table("AppPhones")]

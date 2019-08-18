@@ -13,7 +13,7 @@ namespace Volo.Abp.TestApp.Domain
 
         public virtual Guid? CityId { get; set; }
 
-        public virtual string Name { get; set; }
+        public virtual string Name { get; protected set; }
 
         public virtual int Age { get; set; }
 
@@ -24,9 +24,9 @@ namespace Volo.Abp.TestApp.Domain
 
         public virtual Collection<Phone> Phones { get; set; }
 
-        public Person()
+        protected Person()
         {
-            
+
         }
 
         public Person(Guid id, string name, int age, Guid? tenantId = null, Guid? cityId = null)
