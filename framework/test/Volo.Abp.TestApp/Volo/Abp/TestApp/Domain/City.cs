@@ -7,7 +7,7 @@ namespace Volo.Abp.TestApp.Domain
 {
     public class City : AggregateRoot<Guid>
     {
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         public ICollection<District> Districts { get; set; }
 

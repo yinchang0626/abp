@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Volo.Abp.Domain.Entities.Auditing;
 using Volo.Abp.MultiTenancy;
@@ -12,7 +13,7 @@ namespace Volo.Abp.TestApp.Domain
 
         public virtual Guid? CityId { get; set; }
 
-        public virtual string Name { get; private set; }
+        public virtual string Name { get; set; }
 
         public virtual int Age { get; set; }
 
@@ -23,7 +24,7 @@ namespace Volo.Abp.TestApp.Domain
 
         public virtual Collection<Phone> Phones { get; set; }
 
-        private Person()
+        public Person()
         {
             
         }
