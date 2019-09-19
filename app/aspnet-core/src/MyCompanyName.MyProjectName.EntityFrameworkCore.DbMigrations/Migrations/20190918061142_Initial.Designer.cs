@@ -10,7 +10,7 @@ using MyCompanyName.MyProjectName.EntityFrameworkCore;
 namespace MyCompanyName.MyProjectName.Migrations
 {
     [DbContext(typeof(MyProjectNameMigrationsDbContext))]
-    [Migration("20190816092925_Initial")]
+    [Migration("20190918061142_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -838,8 +838,7 @@ namespace MyCompanyName.MyProjectName.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId")
-                        .IsUnique();
+                    b.HasIndex("ClientId");
 
                     b.ToTable("IdentityServerClients");
                 });

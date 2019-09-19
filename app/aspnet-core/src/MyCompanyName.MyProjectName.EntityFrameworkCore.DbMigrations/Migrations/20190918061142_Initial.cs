@@ -907,8 +907,7 @@ namespace MyCompanyName.MyProjectName.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_IdentityServerClients_ClientId",
                 table: "IdentityServerClients",
-                column: "ClientId",
-                unique: true);
+                column: "ClientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_IdentityServerPersistedGrants_SubjectId_ClientId_Type",
