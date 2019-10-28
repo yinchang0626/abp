@@ -35,7 +35,7 @@ namespace Volo.Abp.Domain.Entities
             Id = id;
         }
 
-        public bool EntityEquals(object obj)
+        public virtual bool EntityEquals(object obj)
         {
             if (obj == null || !(obj is Entity<TKey>))
             {
