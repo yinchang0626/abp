@@ -35,12 +35,8 @@ namespace Volo.Abp.NHibernate
                     m.FluentMappings.AddFromAssemblyOf<TestAppDbContext>();
                 })
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Execute(true, true, false, sqliteConnection, Console.Out));
-                //options.ReplaceDbContext<IThirdDbContext>();
-
-                //options.Entity<Person>(opt =>
-                //{
-                //    opt.DefaultWithDetailsFunc = q => q.Include(p => p.Phones);
-                //});
+                options.AddDefaultRepositories<TestAppDbContext>();
+                options.AddRepository<TestApp.Domain.City, CityRepository>();
             });
 
         }

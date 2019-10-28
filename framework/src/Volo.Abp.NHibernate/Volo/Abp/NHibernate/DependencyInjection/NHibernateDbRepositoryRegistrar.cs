@@ -8,9 +8,9 @@ using Volo.Abp.Domain.Repositories.NHibernate;
 
 namespace Volo.Abp.NHibernate.DependencyInjection
 {
-    public class DbRepositoryRegistrar : RepositoryRegistrarBase<DbContextRegistrationOptionsBuilder>
+    public class NHibernateDbRepositoryRegistrar : RepositoryRegistrarBase<AbpNHibernateDbContextRegistrationOptions>
     {
-        public DbRepositoryRegistrar(DbContextRegistrationOptionsBuilder options)
+        public NHibernateDbRepositoryRegistrar(AbpNHibernateDbContextRegistrationOptions options)
             : base(options)
         {
 

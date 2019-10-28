@@ -11,6 +11,8 @@ namespace Volo.Abp.TestApp.NHibernate
 
         public IQueryable<City> Cities => this.Session.Query<City>();
 
+        public IQueryable<EntityWithIntPk> EntityWithIntPks { get; set; }
+
         //public IList<ThirdDbContextDummyEntity> DummyEntities { get; set; }
 
         public TestAppDbContext()

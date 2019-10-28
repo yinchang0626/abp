@@ -9,10 +9,10 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddAbpNhibernateDbContext<TAbpNHibernateDbContext>(
             this IServiceCollection services,
-            Action<IDbContextRegistrationOptionsBuilder> optionsBuilder = null) //Created overload instead of default parameter
+            Action<IAbpNHibernateDbContextRegistrationOptionsBuilder> optionsBuilder = null) //Created overload instead of default parameter
             where TAbpNHibernateDbContext : DbContext<TAbpNHibernateDbContext>
         {
-            var options = new DbContextRegistrationOptionsBuilder(typeof(TAbpNHibernateDbContext), services);
+            var options = new AbpNHibernateDbContextRegistrationOptions(typeof(TAbpNHibernateDbContext), services);
             
             optionsBuilder?.Invoke(options);
 
@@ -25,7 +25,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 services.Replace(ServiceDescriptor.Transient(dbContextType, typeof(TAbpNHibernateDbContext)));
             }
            
-            new DbRepositoryRegistrar(options).AddRepositories();
+            new NHibernateDbRepositoryRegistrar(options).AddRepositories();
 
             return services;
         }
