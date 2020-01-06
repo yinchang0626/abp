@@ -10,7 +10,7 @@ using MyCompanyName.MyProjectName.EntityFrameworkCore;
 namespace MyCompanyName.MyProjectName.Migrations
 {
     [DbContext(typeof(UnifiedDbContext))]
-    [Migration("20191218090727_Initial")]
+    [Migration("20200106080643_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
