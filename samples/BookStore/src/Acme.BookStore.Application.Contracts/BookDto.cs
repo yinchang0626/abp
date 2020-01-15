@@ -12,5 +12,15 @@ namespace Acme.BookStore
         public DateTime PublishDate { get; set; }
 
         public float Price { get; set; }
+
+        public ISBNDto ISBN { get; set; }
+    }
+    public class ISBNDto
+    {
+        public string EAN { get; set; }
+        public string Group { get; set; }
+        public string Publisher { get; set; }
+        public string Title { get; set; }
+        public string CheckDigit { get; set; }
     }
 }

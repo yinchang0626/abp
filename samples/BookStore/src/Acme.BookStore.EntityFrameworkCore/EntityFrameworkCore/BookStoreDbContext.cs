@@ -35,7 +35,8 @@ namespace Acme.BookStore.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+            //builder.Owned<ISBN>();
+            
 
             /* Configure the shared tables (with included modules) here */
 
@@ -55,6 +56,7 @@ namespace Acme.BookStore.EntityFrameworkCore
             /* Configure your own tables/entities inside the ConfigureBookStore method */
 
             builder.ConfigureBookStore();
+            base.OnModelCreating(builder);
         }
     }
 }

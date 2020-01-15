@@ -13,12 +13,20 @@ namespace Acme.BookStore.EntityFrameworkCore
             Check.NotNull(builder, nameof(builder));
 
             /* Configure your own tables/entities inside here */
-
+            
             builder.Entity<Book>(b =>
             {
                 b.ToTable(BookStoreConsts.DbTablePrefix + "Books", BookStoreConsts.DbSchema);
                 b.ConfigureByConvention();
                 b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+                b.OwnsOne(x => x.ISBN, y =>
+                {
+                    y.Property(y => y.EAN).HasColumnName("EAN");
+                    y.Property(y => y.Group).HasColumnName("Group");
+                    y.Property(y => y.Publisher).HasColumnName("Publisher");
+                    y.Property(y => y.Title).HasColumnName("Title");
+                    y.Property(y => y.CheckDigit).HasColumnName("CheckDigit");
+                });
             });
         }
 

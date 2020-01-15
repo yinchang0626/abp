@@ -17,5 +17,7 @@ namespace Acme.BookStore
 
         [Required]
         public float Price { get; set; }
+
+        public ISBNDto ISBN { get; set; }
     }
 }
