@@ -18,14 +18,14 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.ConfigurePermissionManagement();
             modelBuilder.ConfigureSettingManagement();
             modelBuilder.ConfigureAuditLogging();
             modelBuilder.ConfigureIdentity();
             modelBuilder.ConfigureTenantManagement();
             modelBuilder.ConfigureMyProjectName();
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
