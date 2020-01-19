@@ -31,8 +31,8 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
             var connection = new SqliteConnection("Data Source=:memory:");
             connection.Open();
 
-            new MyProjectNameDbContext(
-                new DbContextOptionsBuilder<MyProjectNameDbContext>().UseSqlite(connection).Options
+            new MyProjectNameMigrationsDbContext(
+                new DbContextOptionsBuilder<MyProjectNameMigrationsDbContext>().UseSqlite(connection).Options
             ).GetService<IRelationalDatabaseCreator>().CreateTables();
             
             return connection;

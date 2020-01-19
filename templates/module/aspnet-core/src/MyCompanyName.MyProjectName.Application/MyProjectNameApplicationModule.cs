@@ -18,7 +18,7 @@ namespace MyCompanyName.MyProjectName
             context.Services.AddAutoMapperObjectMapper<MyProjectNameApplicationModule>();
             Configure<AbpAutoMapperOptions>(options =>
             {
-                options.AddMaps<MyProjectNameApplicationModule>(validate: true);
+                options.AddMaps<MyProjectNameApplicationModule>();
             });
         }
     }

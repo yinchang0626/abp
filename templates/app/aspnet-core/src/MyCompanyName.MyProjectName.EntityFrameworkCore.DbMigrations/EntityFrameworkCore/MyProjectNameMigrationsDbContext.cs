@@ -27,8 +27,6 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             /* Include modules to your migration db context */
 
             builder.ConfigurePermissionManagement();
@@ -50,6 +48,8 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
             /* Configure your own tables/entities inside the ConfigureMyProjectName method */
 
             builder.ConfigureMyProjectName();
+
+            base.OnModelCreating(builder);
         }
     }
 }

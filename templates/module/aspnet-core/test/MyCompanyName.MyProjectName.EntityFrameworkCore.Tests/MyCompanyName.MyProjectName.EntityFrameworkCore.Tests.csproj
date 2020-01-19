@@ -16,4 +16,13 @@
     <ProjectReference Include="..\MyCompanyName.MyProjectName.TestBase\MyCompanyName.MyProjectName.TestBase.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\modules\setting-management\src\Volo.Abp.SettingManagement.EntityFrameworkCore\Volo.Abp.SettingManagement.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\audit-logging\src\Volo.Abp.AuditLogging.EntityFrameworkCore\Volo.Abp.AuditLogging.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\identityserver\src\Volo.Abp.IdentityServer.EntityFrameworkCore\Volo.Abp.IdentityServer.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\permission-management\src\Volo.Abp.PermissionManagement.EntityFrameworkCore\Volo.Abp.PermissionManagement.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\identity\src\Volo.Abp.Identity.EntityFrameworkCore\Volo.Abp.Identity.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\tenant-management\src\Volo.Abp.TenantManagement.EntityFrameworkCore\Volo.Abp.TenantManagement.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+
 </Project>

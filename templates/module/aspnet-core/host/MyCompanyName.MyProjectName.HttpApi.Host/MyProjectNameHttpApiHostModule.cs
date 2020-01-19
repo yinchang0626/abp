@@ -28,6 +28,7 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.AspNetCore.Mvc;
 
 namespace MyCompanyName.MyProjectName
 {
@@ -51,6 +52,11 @@ namespace MyCompanyName.MyProjectName
         {
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
+
+            Configure<AbpAspNetCoreMvcOptions>(options =>
+            {
+                options.ConventionalControllers.Create(typeof(MyProjectNameApplicationModule).Assembly, action => action.RootPath = "MyProjectName");
+            });
 
             Configure<AbpDbContextOptions>(options =>
             {

@@ -1,52 +1,56 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
   "projects": {
-    "MyProjectName": {
+    "ng-alain-app": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
+        "@nrwl/angular:component": {
+          "style": "less"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
+      "root": "apps/ng-alain-app",
+      "sourceRoot": "apps/ng-alain-app/src",
+      "prefix": "fs",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/MyProjectName",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": true,
-            "extractCss": true,
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "outputPath": "dist/apps/ng-alain-app",
+            "index": "apps/ng-alain-app/src/index.html",
+            "main": "apps/ng-alain-app/src/main.ts",
+            "polyfills": "apps/ng-alain-app/src/polyfills.ts",
+            "tsConfig": "apps/ng-alain-app/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/ng-alain-app/src/favicon.ico",
+              "apps/ng-alain-app/src/assets",
               {
-                "input": "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-                "inject": false,
-                "bundleName": "fontawesome-all.min"
-              },
-              {
-                "input": "node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css",
-                "inject": false,
-                "bundleName": "fontawesome-v4-shims.min"
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
               }
             ],
-            "scripts": []
+            "styles": [
+              "apps/ng-alain-app/src/styles.less",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/primeng.min.css"
+            ],
+            "scripts": [
+              "node_modules/@antv/g2/build/g2.js",
+              "node_modules/@antv/data-set/dist/data-set.min.js",
+              "node_modules/@antv/g2-plugin-slider/dist/g2-plugin-slider.min.js",
+              "node_modules/ajv/dist/ajv.bundle.js",
+              "node_modules/qrious/dist/qrious.min.js"
+            ]
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/ng-alain-app/src/environments/environment.ts",
+                  "with": "apps/ng-alain-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -54,6 +58,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -75,61 +80,55 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "MyProjectName:build"
+            "browserTarget": "ng-alain-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "MyProjectName:build:production"
+              "browserTarget": "ng-alain-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MyProjectName:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css"
-            ],
-            "scripts": []
+            "browserTarget": "ng-alain-app:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "apps/ng-alain-app/tsconfig.app.json",
+              "apps/ng-alain-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/ng-alain-app/**"
+            ]
           }
         },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+        "test": {
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "MyProjectName:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "MyProjectName:serve:production"
-            }
+            "jestConfig": "apps/ng-alain-app/jest.config.js",
+            "tsConfig": "apps/ng-alain-app/tsconfig.spec.json",
+            "setupFile": "apps/ng-alain-app/src/test-setup.ts"
           }
         }
       }
     }
   },
-  "defaultProject": "MyProjectName",
   "cli": {
-    "analytics": false
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "ng-alain-app"
 }

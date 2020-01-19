@@ -5,7 +5,7 @@ using Volo.Abp;
 
 namespace MyCompanyName.MyProjectName.Samples
 {
-    [RemoteService]
+    [RemoteService(false)]
     [Route("api/MyProjectName/sample")]
     public class SampleController : MyProjectNameController, ISampleAppService
     {
