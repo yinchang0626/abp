@@ -5,7 +5,7 @@ using Volo.Abp.EntityFrameworkCore;
 namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 {
     [ConnectionStringName(MyProjectNameDbProperties.ConnectionStringName)]
-    public class MyProjectNameDbContext : AbpDbContext<MyProjectNameDbContext>, IMyProjectNameDbContext
+    public partial class MyProjectNameDbContext : AbpDbContext<MyProjectNameDbContext>, IMyProjectNameDbContext
     {
         /* Add DbSet for each Aggregate Root here. Example:
          * public DbSet<Question> Questions { get; set; }
@@ -19,9 +19,9 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             builder.ConfigureMyProjectName();
+
+            base.OnModelCreating(builder);
         }
     }
 }

@@ -28,20 +28,26 @@ using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.Security.Claims;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.AspNetCore.Mvc;
 
 namespace MyCompanyName.MyProjectName
 {
     [DependsOn(
-        typeof(MyProjectNameApplicationModule),
-        typeof(MyProjectNameEntityFrameworkCoreModule),
-        typeof(MyProjectNameHttpApiModule),
+        typeof(Host.HttpApi.MyProjectNameHttpApiHostModule),
         typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
         typeof(AbpAutofacModule),
         typeof(AbpEntityFrameworkCoreSqlServerModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
-        typeof(AbpPermissionManagementEntityFrameworkCoreModule),
-        typeof(AbpSettingManagementEntityFrameworkCoreModule),
-        typeof(AbpAspNetCoreSerilogModule)
+        typeof(AbpAspNetCoreSerilogModule),
+
+    #region abp modules
+        typeof(FS.Abp.Host.HttpApi.AbpHttpApiHostModule),
+    #endregion
+    #region fs modules
+        typeof(FS.Abp.SettingManagement.Host.HttpApi.SettingManagementHttpApiHostModule),
+        typeof(FS.Abp.CodingManagement.Host.HttpApi.CodingManagementHttpApiHostModule),
+        typeof(FS.Abp.Themes.Host.HttpApi.ThemesHttpApiHostModule)
+    #endregion
         )]
     public class MyProjectNameHttpApiHostModule : AbpModule
     {
@@ -51,6 +57,11 @@ namespace MyCompanyName.MyProjectName
         {
             var hostingEnvironment = context.Services.GetHostingEnvironment();
             var configuration = context.Services.GetConfiguration();
+
+            Configure<AbpAspNetCoreMvcOptions>(options =>
+            {
+                options.ConventionalControllers.Create(typeof(MyProjectNameApplicationModule).Assembly, action => action.RootPath = "MyProjectName");
+            });
 
             Configure<AbpDbContextOptions>(options =>
             {

@@ -6,6 +6,8 @@ using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using FS.Abp.CodingManagement.EntityFrameworkCore;
+using FS.Abp.Themes.EntityFrameworkCore;
 
 namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 {
@@ -19,14 +21,17 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.ConfigurePermissionManagement();
             modelBuilder.ConfigureSettingManagement();
             modelBuilder.ConfigureAuditLogging();
             modelBuilder.ConfigureIdentity();
             modelBuilder.ConfigureIdentityServer();
             modelBuilder.ConfigureTenantManagement();
+            modelBuilder.ConfigureThemes();
+            modelBuilder.ConfigureCodingManagement();
+            
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

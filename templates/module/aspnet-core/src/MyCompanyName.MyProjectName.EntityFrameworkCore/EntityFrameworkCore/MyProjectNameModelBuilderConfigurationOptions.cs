@@ -3,7 +3,7 @@ using Volo.Abp.EntityFrameworkCore.Modeling;
 
 namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 {
-    public class MyProjectNameModelBuilderConfigurationOptions : AbpModelBuilderConfigurationOptions
+    public partial class MyProjectNameModelBuilderConfigurationOptions : AbpModelBuilderConfigurationOptions
     {
         public MyProjectNameModelBuilderConfigurationOptions(
             [NotNull] string tablePrefix = "",

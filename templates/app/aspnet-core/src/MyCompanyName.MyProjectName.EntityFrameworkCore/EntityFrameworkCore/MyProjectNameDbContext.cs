@@ -34,8 +34,6 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             /* Configure the shared tables (with included modules) here */
 
             builder.Entity<AppUser>(b =>
@@ -53,6 +51,8 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
             /* Configure your own tables/entities inside the ConfigureMyProjectName method */
 
             builder.ConfigureMyProjectName();
+
+            base.OnModelCreating(builder);
         }
     }
 }

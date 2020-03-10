@@ -9,7 +9,8 @@ namespace MyCompanyName.MyProjectName
         typeof(MyProjectNameDomainModule),
         typeof(MyProjectNameApplicationContractsModule),
         typeof(AbpDddApplicationModule),
-        typeof(AbpAutoMapperModule)
+        typeof(AbpAutoMapperModule),
+        typeof(FS.Abp.Application.AbpDddApplicationModule)
         )]
     public class MyProjectNameApplicationModule : AbpModule
     {
@@ -18,7 +19,7 @@ namespace MyCompanyName.MyProjectName
             context.Services.AddAutoMapperObjectMapper<MyProjectNameApplicationModule>();
             Configure<AbpAutoMapperOptions>(options =>
             {
-                options.AddMaps<MyProjectNameApplicationModule>(validate: true);
+                options.AddMaps<MyProjectNameApplicationModule>();
             });
         }
     }

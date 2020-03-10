@@ -23,7 +23,11 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
         typeof(AbpBackgroundJobsEntityFrameworkCoreModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
-        typeof(AbpFeatureManagementEntityFrameworkCoreModule)
+        typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+
+        typeof(FS.Abp.SettingManagement.EntityFrameworkCore.SettingManagementEntityFrameworkCoreModule),
+        typeof(FS.Abp.CodingManagement.EntityFrameworkCore.CodingManagementEntityFrameworkCoreModule),
+        typeof(FS.Abp.Themes.EntityFrameworkCore.ThemesEntityFrameworkCoreModule)
         )]
     public class MyProjectNameEntityFrameworkCoreModule : AbpModule
     {

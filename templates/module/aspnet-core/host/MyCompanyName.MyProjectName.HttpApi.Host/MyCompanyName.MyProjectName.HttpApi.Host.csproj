@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
@@ -17,16 +21,20 @@
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2" />
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.Autofac\Volo.Abp.Autofac.csproj" />
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy\Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy.csproj" />
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.EntityFrameworkCore.SqlServer\Volo.Abp.EntityFrameworkCore.SqlServer.csproj" />
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.AspNetCore.Serilog\Volo.Abp.AspNetCore.Serilog.csproj" />
-    <ProjectReference Include="..\..\..\..\..\modules\permission-management\src\Volo.Abp.PermissionManagement.EntityFrameworkCore\Volo.Abp.PermissionManagement.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\modules\setting-management\src\Volo.Abp.SettingManagement.EntityFrameworkCore\Volo.Abp.SettingManagement.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\..\..\..\..\modules\audit-logging\src\Volo.Abp.AuditLogging.EntityFrameworkCore\Volo.Abp.AuditLogging.EntityFrameworkCore.csproj" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="2.5.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.MultiTenancy" Version="2.5.0" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="2.5.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="2.5.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="2.5.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="2.5.0" />
+    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="2.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\framework\FS.Abp\src\FS.Abp.Host.Shared\FS.Abp.Host.Shared.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\FS.Abp.CodingManagement\host\FS.Abp.CodingManagement.Host.Shared\FS.Abp.CodingManagement.Host.Shared.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\FS.Abp.SettingManagement\host\FS.Abp.SettingManagement.Host.Shared\FS.Abp.SettingManagement.Host.Shared.csproj" />
+    <ProjectReference Include="..\..\..\..\..\modules\FS.Abp.Themes\host\FS.Abp.Themes.Host.Shared\FS.Abp.Themes.Host.Shared.csproj" />
     <ProjectReference Include="..\..\src\MyCompanyName.MyProjectName.HttpApi\MyCompanyName.MyProjectName.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\MyCompanyName.MyProjectName.Application\MyCompanyName.MyProjectName.Application.csproj" />
     <ProjectReference Include="..\..\src\MyCompanyName.MyProjectName.EntityFrameworkCore\MyCompanyName.MyProjectName.EntityFrameworkCore.csproj" />

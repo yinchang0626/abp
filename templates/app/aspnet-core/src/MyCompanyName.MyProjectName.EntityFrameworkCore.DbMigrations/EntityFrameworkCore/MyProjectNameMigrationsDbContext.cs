@@ -9,6 +9,8 @@ using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement.EntityFrameworkCore;
 using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
+using FS.Abp.CodingManagement.EntityFrameworkCore;
+using FS.Abp.Themes.EntityFrameworkCore;
 
 namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 {
@@ -27,8 +29,6 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
-
             /* Include modules to your migration db context */
 
             builder.ConfigurePermissionManagement();
@@ -40,9 +40,17 @@ namespace MyCompanyName.MyProjectName.EntityFrameworkCore
             builder.ConfigureFeatureManagement();
             builder.ConfigureTenantManagement();
 
+            FS.Abp.SettingManagement.EntityFrameworkCore.SettingManagementDbContextModelCreatingExtensions.ConfigureSettingManagement(builder);
+            builder.ConfigureCodingManagement();
+            builder.ConfigureThemes();
+            /* Configure customizations for entities from the modules included  */
+
+
             /* Configure your own tables/entities inside the ConfigureMyProjectName method */
 
             builder.ConfigureMyProjectName();
+
+            base.OnModelCreating(builder);
         }
     }
 }

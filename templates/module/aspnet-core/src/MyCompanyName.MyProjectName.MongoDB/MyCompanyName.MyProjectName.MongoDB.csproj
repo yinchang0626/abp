@@ -4,11 +4,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>MyCompanyName.MyProjectName</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.MongoDB\Volo.Abp.MongoDB.csproj" />
+    <PackageReference Include="Volo.Abp.MongoDB" Version="2.5.0" />
     <ProjectReference Include="..\MyCompanyName.MyProjectName.Domain\MyCompanyName.MyProjectName.Domain.csproj" />
   </ItemGroup>
 

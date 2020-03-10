@@ -4,11 +4,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>MyCompanyName.MyProjectName</RootNamespace>
+    <RootNamespace></RootNamespace>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\framework\FS.Abp\src\FS.Abp.Domain\FS.Abp.Domain.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.Ddd.Domain\Volo.Abp.Ddd.Domain.csproj" />
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="2.5.0" />
     <ProjectReference Include="..\MyCompanyName.MyProjectName.Domain.Shared\MyCompanyName.MyProjectName.Domain.Shared.csproj" />
   </ItemGroup>
 

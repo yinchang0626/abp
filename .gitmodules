@@ -1,0 +1,17 @@
+[submodule "framework/FS.Abp"]
+	path = framework/FS.Abp
+	url = https://github.com/yinchang0626/FS.Abp.git
+[submodule "modules/FS.Abp.Trees"]
+
+	path = modules/FS.Abp.Trees
+
+	url = https://github.com/yinchang0626/FS.Abp.Trees.git
+[submodule "modules/FS.Abp.Themes"]
+	path = modules/FS.Abp.Themes
+	url = https://github.com/yinchang0626/FS.Abp.Themes.git
+[submodule "modules/FS.Abp.SettingManagement"]
+	path = modules/FS.Abp.SettingManagement
+	url = https://github.com/yinchang0626/FS.Abp.SettingManagement.git
+[submodule "modules/FS.Abp.CodingManagement"]
+	path = modules/FS.Abp.CodingManagement
+	url = https://github.com/yinchang0626/FS.Abp.CodingManagement.git

@@ -7,12 +7,11 @@
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <IsPackable>true</IsPackable>
     <OutputType>Library</OutputType>
-    <RootNamespace>MyCompanyName.MyProjectName.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.AutoMapper\Volo.Abp.AutoMapper.csproj" />
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared\Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared.csproj" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="2.5.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="2.5.0" />
   </ItemGroup>
 
   <ItemGroup>

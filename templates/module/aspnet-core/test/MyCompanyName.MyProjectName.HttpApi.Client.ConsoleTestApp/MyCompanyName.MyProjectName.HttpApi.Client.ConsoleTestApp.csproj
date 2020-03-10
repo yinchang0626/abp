@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\framework\src\Volo.Abp.Http.Client.IdentityModel\Volo.Abp.Http.Client.IdentityModel.csproj" />
+    <PackageReference Include="Volo.Abp.Http.Client.IdentityModel" Version="2.5.0" />
     <ProjectReference Include="..\..\src\MyCompanyName.MyProjectName.HttpApi.Client\MyCompanyName.MyProjectName.HttpApi.Client.csproj" />
   </ItemGroup>
 
