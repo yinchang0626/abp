@@ -9,7 +9,8 @@ namespace MyCompanyName.MyProjectName
         typeof(MyProjectNameDomainModule),
         typeof(MyProjectNameApplicationContractsModule),
         typeof(AbpDddApplicationModule),
-        typeof(AbpAutoMapperModule)
+        typeof(AbpAutoMapperModule),
+        typeof(FS.Abp.Application.AbpDddApplicationModule)
         )]
     public class MyProjectNameApplicationModule : AbpModule
     {

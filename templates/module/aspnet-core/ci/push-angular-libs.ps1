@@ -1,11 +1,6 @@
-param([string]$lib="") 
+$ErrorActionPreference = "Stop"
 
-$branch="angular/libs/"+$lib
+git subtree split -P angular/libs/MyProjectName -b angular/libs/MyProjectName
 
-$remote="origin"
-$branchToPsuh=$branch+":"+$branch
-
-git subtree split -P "$branch" -b "$branch"
-
-git push "$remote" "$branchToPsuh"
+git push origin angular/libs/MyProjectName:angular/libs/MyProjectName
 
