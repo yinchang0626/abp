@@ -6,3 +6,6 @@
 	path = modules/FS.Abp.Trees
 
 	url = https://github.com/yinchang0626/FS.Abp.Trees.git
+[submodule "modules/FS.Abp.Themes"]
+	path = modules/FS.Abp.Themes
+	url = https://github.com/yinchang0626/FS.Abp.Themes.git
