@@ -13,6 +13,7 @@ import { AccountConfigModule } from '@abp/ng.account.config';
 import { IdentityConfigModule } from '@abp/ng.identity.config';
 import { TenantManagementConfigModule } from '@abp/ng.tenant-management.config';
 import { SettingManagementConfigModule } from '@abp/ng.setting-management.config';
+import { MyPermissionManagementComponent } from './components/permission-management/permission-management.component';
 
 const LOGGERS = [NgxsLoggerPluginModule.forRoot({ disabled: false })];
 
@@ -33,7 +34,9 @@ const LOGGERS = [NgxsLoggerPluginModule.forRoot({ disabled: false })];
     SharedModule,
     ...(environment.production ? [] : LOGGERS),
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyPermissionManagementComponent],
+  entryComponents:[MyPermissionManagementComponent],
+  exports:[MyPermissionManagementComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
