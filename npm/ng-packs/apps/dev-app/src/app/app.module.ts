@@ -5,7 +5,7 @@ import { SettingManagementConfigModule } from '@abp/ng.setting-management/config
 import { TenantManagementConfigModule } from '@abp/ng.tenant-management/config';
 import { ThemeBasicModule } from '@abp/ng.theme.basic';
 import { ThemeSharedModule } from '@abp/ng.theme.shared';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -36,8 +36,17 @@ const LOGGERS = [NgxsLoggerPluginModule.forRoot({ disabled: true })];
     ThemeBasicModule.forRoot(),
     ...(environment.production ? [] : LOGGERS),
   ],
-  providers: [APP_ROUTE_PROVIDER],
+  providers: [
+    APP_ROUTE_PROVIDER,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: function () {
+        return () => new Promise(resolve => setTimeout(resolve, 1000));
+      },
+      multi: true,
+    }
+  ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
